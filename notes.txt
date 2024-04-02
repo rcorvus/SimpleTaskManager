@@ -1,0 +1,25 @@
+1. In File Manager, navigate to C:\Users\rober\OneDrive\Documents\Repos\TaskManager folder
+2. Right-click, Open Terminal Here
+
+3. To Create the Database:
+python3 <enter>
+>>> from app import db
+>>> db.create_all()
+>>> from models import Task
+>>> from datetime import datetime
+>>> t = Task(title="abc", date=datetime.utcnow()
+>>> t
+
+<should show abc, but probably transient.
+
+>>> db.session.add(t)
+>>> db.session.commit()
+>>> Task.query.all()
+<should show [abc], but probably transient.
+
+>>> exit()
+
+If model changes, just delete the data.db in the project folder and re-create as above
+
+4. To Run the App:
+python3 app
